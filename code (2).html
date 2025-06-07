@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keenetic Pro: Ваш Персональный Кибер-Щит</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Общие стили и футуристичная палитра */
+        :root {
+            --dark-bg: #0A0A1A;
+            --accent-blue: #00FFFF; /* Неоновый голубой */
+            --accent-purple: #8A2BE2; /* Электрический фиолетовый */
+            --text-light: #E0E0FF;
+            --text-muted: #A0A0C0;
+            --gradient-btn: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif; /* Футуристичный шрифт для заголовков */
+            color: var(--accent-blue);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Стили для кнопок */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--gradient-btn);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Эффект свечения */
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+        }
+
+        /* Навигация */
+        nav {
+            background-color: rgba(10, 10, 26, 0.8);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        #hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            /* Прямая ссылка на изображение успешно вставлена! */
+            background: url('https://i.pinimg.com/736x/8d/95/ac/8d95ac4350c0a45243a5bfa96d0284a9.jpg') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6); /* Затемнение для текста */
+            z-index: 0;
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        #hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Разделы с преимуществами и процессом */
+        .feature-grid, .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item, .process-step {
+            background-color: rgba(20, 20, 40, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover, .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .feature-item h3, .process-step h3 {
+            color: var(--accent-blue);
+            font-size: 1.5em;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p, .process-step p {
+            color: var(--text-muted);
+            font-size: 0.95em;
+        }
+
+        .icon {
+            font-size: 3em;
+            color: var(--accent-purple);
+            margin-bottom: 10px;
+        }
+
+        /* Отзывы */
+        #reviews .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .review-card {
+            background-color: rgba(20, 20, 40, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .review-card p {
+            font-style: italic;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .review-card .author {
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-align: right;
+            display: block;
+        }
+
+        /* Контакты */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
+
+        #contact .contact-info {
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        #contact .contact-info a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #contact .contact-info a:hover {
+            color: var(--accent-purple);
+        }
+
+        /* Футер */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px 5%;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+            font-size: 0.9em;
+        }
+
+        /* Медиа-запросы для адаптивности (очень базовые) */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            #hero p {
+                font-size: 1em;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul li a {
+                font-size: 0.9em;
+            }
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#hero">Главная</a></li>
+            <li><a href="#why-us">Почему Мы?</a></li>
+            <li><a href="#how-it-works">Как Это Работает?</a></li>
+            <li><a href="#reviews">Отзывы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <section id="hero">
+        <div class="content">
+            <h1>Keenetic Pro: Ваш Персональный Кибер-Щит. Роутеры с VPN и Блокировкой Рекламы под Заказ.</h1>
+            <p>Настроим Keenetic роутер специально для вас: безопасный VPN-доступ, тотальная блокировка рекламы и максимальная производительность. Забудьте о цифровых угрозах и навязчивой рекламе.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScpHMR1UkkXqzI5txrj-ROSCsS257Oxyg7A3H_av0-2F_RccQ/viewform" target="_blank" class="btn">Подобрать Роутер и Оформить Заказ</a>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <h2>Ваша Сеть. Наша Экспертиза. Почему Keenetic Pro?</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="icon">🛡️</div>
+                <h3>Персонализированная Настройка</h3>
+                <p>Мы не просто продаем роутеры. Мы создаем вашу идеальную сеть. Каждый роутер Keenetic настраивается индивидуально под ваши нужды.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔒</div>
+                <h3>Безопасность Будущего</h3>
+                <p>Защитите себя от киберугроз и слежки. Наши роутеры поставляются с предустановленным и настроенным VPN, обеспечивая анонимность и безопасность.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🚫</div>
+                <h3>Интернет Без Рекламы</h3>
+                <p>Наслаждайтесь чистым интернетом. Встроенный блокировщик рекламы на уровне роутера избавит вас от навязчивых баннеров и трекеров.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">⚡</div>
+                <h3>Простота и Удобство</h3>
+                <p>Получите готовое решение. Вам не нужно быть экспертом – мы сделаем всю сложную работу. Просто подключите роутер, и ваша защищенная сеть готова.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <h2>Ваш Путь к Защищенной Сети: Просто и Понятно</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="icon">1️⃣</div>
+                <h3>Шаг 1: Заполните Форму</h3>
+                <p>Нажмите кнопку "Подобрать Роутер" и ответьте на несколько вопросов в нашей Google Форме.</p>
+            </div>
+            <div class="process-step">
+                <div class="icon">2️⃣</div>
+                <h3>Шаг 2: Консультация и Предложение</h3>
+                <p>Мы свяжемся с вами для уточнения деталей, предложим оптимальную модель Keenetic и согласуем параметры настройки.</p>
+            </div>
+            <div class="process-step">
+                <div class="icon">3️⃣</div>
+                <h3>Шаг 3: Оформление Заказа и Настройка</h3>
+                <p>После подтверждения заказа мы приступаем к профессиональной настройке вашего роутера.</p>
+            </div>
+            <div class="process-step">
+                <div class="icon">4️⃣</div>
+                <h3>Шаг 4: Доставка и Подключение</h3>
+                <p>Получите готовый к работе роутер. Просто подключите его, и наслаждайтесь безопасным интернетом без рекламы!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2>Нам Доверяют: Отзывы о Keenetic Pro</h2>
+        <div class="review-grid">
+            <div class="review-card">
+                <p>"Я в восторге! Наконец-то интернет без рекламы на всех устройствах. VPN работает стабильно, скорость отличная. Рекомендую!"</p>
+                <span class="author">– Алексей К.</span>
+            </div>
+            <div class="review-card">
+                <p>"Очень удобно, что все настроили за меня. Просто подключил и забыл о проблемах с безопасностью. Спасибо Keenetic Pro!"</p>
+                <span class="author">– Мария С.</span>
+            </div>
+            <div class="review-card">
+                <p>"Искал решение для защиты домашней сети, и этот сервис превзошел ожидания. Индивидуальный подход и качественная настройка."</p>
+                <span class="author">– Иван П.</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Есть Вопросы? Свяжитесь с Нами!</h2>
+        <p>Готовы защитить свою сеть? Нажмите кнопку ниже, чтобы начать!</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScpHMR1UkkXqzI5txrj-ROSCsS257Oxyg7A3H_av0-2F_RccQ/viewform" target="_blank" class="btn">Подобрать Роутер и Оформить Заказ</a>
+        <div class="contact-info">
+            <p>Email: <a href="mailto:your_email@example.com">your_email@example.com</a></p>
+            <p>Telegram/WhatsApp: <a href="https://web.telegram.org/a/#1178747872" target="_blank">Написать в Telegram</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Keenetic Pro. Все права защищены.</p>
+        <!-- Дополнительные ссылки: Политика конфиденциальности, Соцсети -->
+    </footer>
+
+    <script>
+        // Здесь можно добавить JavaScript для плавного скроллинга, анимаций и т.д.
+        // Например, для плавного скролла к якорям:
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
